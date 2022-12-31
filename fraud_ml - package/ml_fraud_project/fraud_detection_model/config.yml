@@ -1,0 +1,106 @@
+# Package Overview
+package_name: fraud_detection_model
+
+# Data Files
+training_data_file: fraudTrain
+test_data_file: fraudTest
+
+#Variables
+#Te variable we aer attempting to predict (is_fraud)
+target: is_fraud
+
+pipeline_name: fraud_detection_model
+pipeline_save_file: fraud_detection_model_output_v
+
+date_transformation: 
+ - trans_date_trans_time
+ - dob
+
+amt_per_txn_day_partition:
+ - cc_num
+
+avg_day_amt_partition:
+ - cc_num
+ - gender
+
+std_day_amt_partition:
+ - category
+
+fraud_freq_mapper:
+ - trans_date_trans_time_hour
+
+farm_hash_mapper:
+ - category
+
+log_transformation:
+ - amt
+ - dob_year
+ - cc_num_mean_caldate_sum_amt
+ - gender_mean_caldate_sum_amt
+ - category_std_year_amt_per_txn
+ - cc_num_mean_caldate_amt_per_txn
+
+varaiable_list:
+ - category
+ - amt
+ - trans_date_trans_time_hour
+ - dob_year
+ - cc_num_mean_caldate_sum_amt
+ - gender_mean_caldate_sum_amt
+ - category_std_year_amt_per_txn
+ - cc_num_mean_caldate_amt_per_txn
+ - trans_date_trans_time_hour_fraud_freq
+
+
+avg_day_amt_date_cols:
+ - trans_date_trans_time_caldate
+
+std_amt_per_txn_year_cols:
+ - trans_date_trans_time_year
+
+amt_per_txn_date_cols:
+ - trans_date_trans_time_caldate
+
+aggregation_col: "amt"
+
+avg_aggregation_type: "mean"
+
+std_aggregation_type: "std"
+
+sum_aggregation_value: "sum"
+
+seed: 4
+
+class_weight:
+ 0: 0
+ 1: 2
+
+features:
+
+ - trans_date_trans_time
+ - cc_num
+ - merchant
+ - category
+ - amt
+ - first
+ - last
+ - gender
+ - street
+ - city
+ - state
+ - zip
+ - lat
+ - long
+ - city_pop
+ - job
+ - dob
+ - trans_num
+ - unix_time
+ - merch_lat
+ - merch_long
+
+train_size: 0.8
+
+random_state: 0
+
+

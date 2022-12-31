@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../ML Deployment Course/deploying-machine-learning-models/section-06-model-serving-api"
+		}
+	],
+	"settings": {}
+}
